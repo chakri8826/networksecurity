@@ -51,7 +51,24 @@ class DataIngestionConfig:
         self.collection_name: str = training_pipeline.DATA_INGESTION_COLLECTION_NAME
         self.database_name: str = training_pipeline.DATA_INGESTION_DATABASE_NAME
 
+
 class DataValidationConfig:
+    #     Artifacts/
+    # │
+    # └── 08_12_2026_07_50_00/
+    #     │
+    #     └── data_validation/
+    #         │
+    #         ├── validated/
+    #         │   ├── train.csv
+    #         │   └── test.csv
+    #         │
+    #         ├── invalid/
+    #         │   ├── train.csv
+    #         │   └── test.csv
+    #         │
+    #         └── drift_report/
+    #             └── report.yaml
     def __init__(self,training_pipeline_config:TrainingPipelineConfig):
         self.data_validation_dir: str = os.path.join( training_pipeline_config.artifact_dir, training_pipeline.DATA_VALIDATION_DIR_NAME)
         self.valid_data_dir: str = os.path.join(self.data_validation_dir, training_pipeline.DATA_VALIDATION_VALID_DIR)
@@ -67,6 +84,19 @@ class DataValidationConfig:
         )
 
 
+    # Artifacts/
+    # │
+    # └── 08_12_2026_15_00_00/
+      #   │
+    #     └──    
+        # data_transformation/
+        #         │
+        #         ├── transformed/
+        #         │   ├── train.npy
+        #         │   └── test.npy
+        #         │
+        #         └── transformed_object/
+        #             └── preprocessing.pkl
 class DataTransformationConfig:
      def __init__(self,training_pipeline_config:TrainingPipelineConfig):
         self.data_transformation_dir: str = os.path.join( training_pipeline_config.artifact_dir,training_pipeline.DATA_TRANSFORMATION_DIR_NAME )

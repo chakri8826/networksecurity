@@ -90,7 +90,7 @@ class DataIngestion:
             raise NetworkSecurityException(e,sys)
         
         
-    def initiate_data_ingestion(self):
+    def initiate_data_ingestion(self) -> DataIngestionArtifact:
         try:
             # 1st Step -> Exporting the data from mongodb and converting it into a dataframe
             dataframe=self.export_collection_as_dataframe()
